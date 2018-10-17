@@ -1,2 +1,1 @@
-# starter-theme
-Boilerplate SSM Starter Theme based on Sage Starter Theme
+## Updated README is in progress...
