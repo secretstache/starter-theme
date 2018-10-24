@@ -19,16 +19,11 @@
 					$main_column->option_background_image
 				);
 
-				$video_background = $builder->getVideoBackground(
-					$main_column->option_background,
-					$main_column->option_background_video
-				);
-
 				$columns_width = 12 / count( $main_column->columns ) ;
 
 			@endphp
 
-        	@include( 'templates.hero-unit', [ 'classes' => $classes, 'style' => $style, 'video_background' => $video_background, 'columns' => $main_column->columns, 'count' => count( $main_column->columns ), 'x_alignment' => $main_column->option_x_alignment, 'y_alignment' => $main_column->option_y_alignment, 'columns_width' => $columns_width ] )
+        	@include( 'templates.hero-unit', [ 'classes' => $classes, 'style' => $style, 'option_background' => $main_column->option_background, 'option_background_video' => $main_column->option_background_video, 'columns' => $main_column->columns, 'count' => count( $main_column->columns ), 'x_alignment' => $main_column->option_x_alignment, 'y_alignment' => $main_column->option_y_alignment, 'columns_width' => $columns_width ] )
 
 		@endif {{-- $hero_unit_columns --}}
 		
@@ -56,22 +51,11 @@
 								$template->option_background_image
 							);
 
-							$video_background = $builder->getVideoBackground(
-								$template->option_background,
-								$template->option_background_video
-							);
-
-							$header = $builder->getTemplateHeader(
-								$template->option_include_template_header,
-								$template->option_template_headline,
-								$template->option_template_subheadline
-							);
-
 							$columns_width = ( !is_null( $template->option_columns_width ) ) ? $template->option_columns_width : ( 12 / count( $template->template_columns ) );
 							
 						@endphp
 
-						@include( 'templates.columns', [ 'classes' => $classes, 'style' => $style, 'video_background' => $video_background, 'header' => $header, 'columns' => $template->template_columns, 'count' => count( $template->template_columns ), 'x_alignment' => $template->option_x_alignment, 'y_alignment' => $template->option_y_alignment, 'columns_width' => $columns_width ] )
+						@include( 'templates.columns', [ 'classes' => $classes, 'style' => $style, 'option_include_template_header' => $template->option_include_template_header, 'option_template_headline' => $template->option_template_headline, 'option_template_subheadline' => $template->option_template_subheadline, 'option_background' => $template->option_background, 'option_background_video' => $template->option_background_video, 'columns' => $template->template_columns, 'count' => count( $template->template_columns ), 'x_alignment' => $template->option_x_alignment, 'y_alignment' => $template->option_y_alignment, 'columns_width' => $columns_width ] )
 						@break
 
 				@endswitch {{-- $template->acf_fc_layout --}}

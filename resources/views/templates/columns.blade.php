@@ -2,8 +2,17 @@
 
     <section {!! $classes !!} {!! $style !!} >
 
-        {!! $video_background !!}
-        {!! $header !!}
+        @if( $option_background == 'Video' && !is_null( $option_background_video ) )
+    
+            @include( 'partials.video-background', [ 'option_background_video' => $option_background_video ] )
+
+        @endif
+        
+        @if( $option_include_template_header )
+        
+                @include( 'partials.template-header', [ 'option_template_headline' => $option_template_headline, 'option_template_subheadline' ] )
+        
+        @endif {{-- $option_include_template_header --}}
 
         @if( !empty( $columns ) )
 
