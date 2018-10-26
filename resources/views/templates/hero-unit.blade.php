@@ -1,17 +1,17 @@
 <section {!! $classes !!} {!! $style !!} >
 
-    @if( $option_background == 'Video' && !is_null( $option_background_video ) )
+    @if( $column->option_background == 'Video' && !is_null( $column->option_background_video ) )
 
-        @include( 'partials.video-background', [ 'option_background_video' => $option_background_video ] )
+        @include( 'partials.video-background', [ 'video' => $column->option_background_video ] )
 
     @endif
 
-    @if( !empty( $columns ) )
+    @if( !empty( $column->columns ) )
 
             <div class="grid-container">
-                <div class="main grid-x grid-margin-x {{ "align-" . $x_alignment . " align-" . $y_alignment . " has-" . $count . "-cols" }} ">
+                <div class="main grid-x grid-margin-x {{ "align-" . $column->option_x_alignment . " align-" . $column->option_y_alignment . " has-" . count( $column->columns ) . "-cols" }} ">
 
-                    @foreach( $columns as $key => $column )
+                    @foreach( $column->columns as $key => $column )
 
                         <div class="cell small-11 medium-{{ $columns_width . ' i-' . $key }}">
                             <div class="inner">

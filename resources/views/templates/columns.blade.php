@@ -1,25 +1,25 @@
 @if( $template->option_status )
 
     <section {!! $classes !!} {!! $style !!} >
-        
-        @if( $option_background == 'Video' && !is_null( $option_background_video ) )
+
+        @if( $template->option_background == 'Video' && !is_null( $template->option_background_video ) )
     
-            @include( 'partials.video-background', [ 'option_background_video' => $option_background_video ] )
+            @include( 'partials.video-background', [ 'video' => $template->option_background_video ] )
 
         @endif
         
-        @if( $option_include_template_header )
+        @if( $template->option_include_template_header )
         
-                @include( 'partials.template-header', [ 'option_template_headline' => $option_template_headline, 'option_template_subheadline' ] )
+                @include( 'partials.template-header', [ 'headline' => $template->option_template_headline, 'subheadline' => $template->option_template_subheadline ] )
         
         @endif {{-- $option_include_template_header --}}
 
-        @if( !empty( $columns ) )
+        @if( !empty( $template->template_columns ) )
 
             <div class="grid-container">
-                <div class="main grid-x grid-margin-x {{ "align-" . $x_alignment . " align-" . $y_alignment . " has-" . $count . "-cols" }} ">
+                <div class="main grid-x grid-margin-x {{ "align-" . $template->option_x_alignment . " align-" . $template->option_y_alignment . " has-" . count( $template->template_columns ) . "-cols" }} ">
 
-                    @foreach( $columns as $key => $column )
+                    @foreach( $template->template_columns as $key => $column )
 
                         <div class="cell small-11 medium-{{ $columns_width . ' i-' . $key }}">
                             <div class="inner">

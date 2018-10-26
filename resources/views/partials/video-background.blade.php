@@ -2,7 +2,7 @@
     
     <video autoplay loop>
     
-        <source src=" {!! $option_background_video->url !!} " type="video/mp4">
+        <source src=" {!! $video->url !!} " type="video/mp4">
     
     </video>
 

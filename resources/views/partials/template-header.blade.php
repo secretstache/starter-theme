@@ -3,9 +3,9 @@
         <div class="cell small-12 medium-10">
             <header class="component template-header align-center">
 
-                <h2 class="headline"> {!! $option_template_headline !!} </h2>
+                <h2 class="headline"> {!! $headline !!} </h2>
 
-                <h3 class="subheadline"> {!! $option_template_subheadline !!} </h3>
+                <h3 class="subheadline"> {!! $subheadline !!} </h3>
 
             </header>
         </div>
