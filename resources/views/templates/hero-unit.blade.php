@@ -24,7 +24,7 @@
                                                 
                                             @php 
 
-                                                $classes = $builder->getCustomClasses( "custom-classs", "module", $key, $module );
+                                                $classes = $builder->getCustomClasses( "module", $key, $module );
                                                 $target = ( $module->option_target == 'new_tab' ) ? '_blank' : '_self';
                                             
                                             @endphp
@@ -34,14 +34,14 @@
 
                                         @case( 'html_editor' )
 
-                                            @php $classes = $builder->getCustomClasses( "custom-classs", "module", $key, $module ); @endphp
+                                            @php $classes = $builder->getCustomClasses( "module", $key, $module ); @endphp
 
                                             @include( 'modules.html-editor', [ 'classes' => $classes, 'html_editor' => $module->html_editor_inner_text ] )
                                             @break
                                         
                                         @case( 'image' )
 
-                                            @php $classes = $builder->getCustomClasses( "custom-classs", "module", $key, $module ); @endphp
+                                            @php $classes = $builder->getCustomClasses( "module", $key, $module ); @endphp
 
                                             @include( 'modules.image', [ 'classes' => $classes, 'src' => $module->image_inner->url, 'alt' => $module->image_inner->alt ] )
                                             @break
