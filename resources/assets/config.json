@@ -6,7 +6,10 @@
     ],
     "customizer": [
       "./scripts/customizer.js"
-    ]
+    ],
+    "columns_width": [
+			"./scripts/columns_width.js"
+		]
   },
   "publicPath": "/wp-content/themes/ssm",
   "devUrl": "http://rebuild.loc",
