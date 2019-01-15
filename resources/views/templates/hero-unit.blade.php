@@ -6,7 +6,7 @@
 
     @endif
 
-    @if( !empty( $column->columns ) )
+    {{-- @if( !empty( $column->columns ) ) --}}
 
             <div class="grid-container">
                 <div class="main grid-x grid-margin-x {{ "align-" . $column->option_x_alignment . " align-" . $column->option_y_alignment . " has-" . count( $column->columns ) . "-cols" }} ">
@@ -60,6 +60,6 @@
                 </div> {{-- main --}}
             </div>  {{-- grid-container --}}
 
-        @endif {{-- !empty( $columns ) --}}
+        {{-- @endif !empty( $columns ) --}}
 
 </section>
