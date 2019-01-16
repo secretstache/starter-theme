@@ -28,20 +28,23 @@ $link = is_page_template('landing-page.php') ? false : true;
 			<div class="brand cell shrink">
 			
 				@if ($link)
+
 					<a href="{{home_url()}}">
-						<span class="site-title">{{get_bloginfo('name')}}</span>
-					</a>
-				@else
-					@if ($logo = get_field('brand_logo', 'options'))
-		
-						@if ($icon = get_field('brand_icon', 'options'))
-							<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] }}" class="logo show-for-medium">
-							<img src="{{ $icon['url'] }}" alt="{{ $icon['alt'] }}" class="icon hide-for-medium">
+
+						@if ($logo = get_field('brand_logo', 'options'))
+			
+							@if ($icon = get_field('brand_icon', 'options'))
+								<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] }}" class="logo show-for-medium">
+								<img src="{{ $icon['url'] }}" alt="{{ $icon['alt'] }}" class="icon hide-for-medium">
+							@else
+								<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] }}" class="logo">
+							@endif
+						
 						@else
-							<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] }}" class="logo">
+							<span class="site-title">{{get_bloginfo('name')}}</span>
 						@endif
-					
-					@endif
+						
+					</a>
 						
 				@endif
 		
@@ -65,4 +68,4 @@ $link = is_page_template('landing-page.php') ? false : true;
 		
 		</div>    
 	</div>
-	</header>
+</header>
