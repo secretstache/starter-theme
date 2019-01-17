@@ -1,6 +1,6 @@
 @if( !post_password_required() )
 
-	@if( $hero_unit_columns )
+	@if( $hero_unit_columns && !empty( $hero_unit_columns->columns ) )
 
 		@php
 
