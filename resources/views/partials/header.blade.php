@@ -5,20 +5,6 @@ $link = is_page_template('landing-page.php') ? false : true;
 
 @endphp
 
-@if ( !is_page_template('landing-page.php') && has_nav_menu('primary_navigation') )
-	
-	<div class="off-canvas right" id="offCanvas" data-toggler=".is-active">
-		
-		@php wp_nav_menu( array( 'theme_location' => 'primary_navigation', 'container' => FALSE, 'items_wrap' => '<ul class="vertical menu">%3$s</ul>', 'walker' => new Foundation_Nav_Walker ) ); @endphp
-		
-		<button class="button off-canvas-close" data-toggle="offCanvas">
-			<img src="{{ get_stylesheet_directory_uri() . '/dist/images/x.svg' }}" alt="Close" class="editable">
-		</button>
-	
-	</div>
-
-@endif
-
 <header class="site-header">
 
 	<div class="grid-container">
@@ -41,7 +27,7 @@ $link = is_page_template('landing-page.php') ? false : true;
 							@endif
 						
 						@else
-							<span class="site-title">{{get_bloginfo('name')}}</span>
+							<span class="site-title">{{ get_bloginfo('name') }}</span>
 						@endif
 						
 					</a>
@@ -54,7 +40,7 @@ $link = is_page_template('landing-page.php') ? false : true;
 			
 				<nav class="primary-navigation cell shrink">
 
-					@php wp_nav_menu( array( 'theme_location' => 'primary_navigation', 'container' => FALSE, 'items_wrap' => '<ul class="horizontal menu show-for-medium dropdown" data-dropdown-menu>%3$s</ul>', 'walker' => new Foundation_Nav_Walker ) ); @endphp
+					@php wp_nav_menu( $builder->getMenuArgs('primary_navigation') ); @endphp
 				
 					<button class="hamburger hide-for-medium" type="button" data-toggle="offCanvas" aria-expanded="false" aria-controls="offCanvas">
 						<span class="hamburger-line hamburger-line1"></span>
@@ -68,4 +54,4 @@ $link = is_page_template('landing-page.php') ? false : true;
 		
 		</div>    
 	</div>
-</header>
+	</header>
