@@ -8,7 +8,7 @@
             
             @php 
             
-                $classes = $builder->getCustomClasses( "template", '', $template );
+                $classes = $builder->getCustomClasses( "template", '', '', $template );
                 $id = $builder->getCustomID( $template );
                 $style = ( $template->option_background == 'Image' && !is_null( $template->option_background_image ) ) ? ' style="background-image: url(' . $template->option_background_image->url . ')" ' : '';
                 $columns_width = $builder->getColumnsWidth( $column_index );

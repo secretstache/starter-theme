@@ -4,7 +4,7 @@
 
 		@php
 
-			$classes = $builder->getCustomClasses( "hero-unit", '', $hero_unit_columns );
+			$classes = $builder->getCustomClasses( "hero-unit", '', '', $hero_unit_columns );
 			$id = $builder->getCustomID( $hero_unit_columns );
 			$style = ( $hero_unit_columns->option_background == 'Image' && !is_null( $hero_unit_columns->option_background_image ) ) ? ' style="background-image: url(' . $hero_unit_columns->option_background_image->url . ')" ' : '';
 

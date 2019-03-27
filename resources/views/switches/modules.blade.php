@@ -3,7 +3,7 @@
 
     @php
         
-        $classes = $builder->getCustomClasses( "module", $key, $module );
+        $classes = $builder->getCustomClasses( "module", '', $key, $module );
         $id = $builder->getCustomID( $module );
 
     @endphp
@@ -17,7 +17,7 @@
                 @php 
                 
                     $target = ( $button->option_target == 'new_tab' ) ? '_blank' : '_self'; 
-                    $classes = $builder->getCustomClasses( "module", $key, $button );
+                    $classes = $builder->getCustomClasses( "module", '', $key, $button );
                     $id = $builder->getCustomID( $button );    
                 
                 @endphp
