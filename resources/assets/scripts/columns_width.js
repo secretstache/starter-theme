@@ -139,7 +139,7 @@ jQuery(document).ready(function($) {
 	
 			var ul = $(this)
 				.parents("div.acf-fields")
-				.children('div[data-name="columns_width"]')
+				.children('div[data-name="option_columns_width"]')
 				.find("ul.acf-radio-list");
 
 			ul.empty();
@@ -275,7 +275,7 @@ jQuery(document).ready(function($) {
 	
 			var ul = el
 				.parents("div.acf-fields")
-				.children('div[data-name="columns_width"]')
+				.children('div[data-name="option_columns_width"]')
 				.find("ul.acf-radio-list");
 						
 			ul.empty();
