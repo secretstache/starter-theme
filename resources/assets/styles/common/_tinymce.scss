@@ -1,3 +1,4 @@
 body#tinymce {
-  margin: 12px !important;
+	background: $body-background!important;
+	margin: $wp-editor-margin!important;
 }
