@@ -1,4 +1,5 @@
-section.content-block {
+section.content-block,
+section.hero-unit {
   @include clearfix;
   @include responsive-margin("top");
   position: relative;
