@@ -3,6 +3,30 @@ section.content-block {
   @include responsive-margin("top");
   position: relative;
   z-index: 1;
+
+  @include breakpoint(medium) {
+    .medium-order-1 {
+      order: 0!important;
+      -webkit-box-ordinal-group: 0!important;
+    }
+    .medium-order-2 {
+      order: 0!important;
+      -webkit-box-ordinal-group: 0!important;
+    }
+    @include responsive-margin("top");
+  }
+
+  @include breakpoint(small only) {
+    .medium-order-1 {
+      order: 1!important;
+      -webkit-box-ordinal-group: 1!important;
+    }
+    .medium-order-2 {
+      order: 2!important;
+      -webkit-box-ordinal-group: 2!important;
+    }
+  }
+
 }
 
 section[class^="bg-"],
