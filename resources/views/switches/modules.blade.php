@@ -48,6 +48,11 @@
             @include( 'modules.video', [ 'classes' => $classes, 'id' => $id, 'video' => $module->video ] )
             @break
 
+        @case( 'form' )
+
+            @include( 'modules.form', [ 'classes' => $classes, 'id' => $id, 'form_id' => $module->form ] )
+            @break
+
         @endswitch {{-- $module->acf_fc_layout --}}
 
 @endforeach {{-- $modules as $module --}}
