@@ -15,14 +15,15 @@
             @foreach ($module->buttons as $button)
                 
                 @php 
-                
-                    $target = ( $button->option_target == 'new_tab' ) ? '_blank' : '_self'; 
-                    $classes = $builder->getCustomClasses( "module", '', $key, $button );
-                    $id = $builder->getCustomID( $button );    
+
+                    $size_class = ( $button->option_button_size == "large" ) ? 'large' : 'small';
+                    $target = $button->option_button_target;
+                    $inner_classes = ( $button->option_html_classes ) ? " " . $button->option_html_classes : '';
+                    $inner_id = $builder->getCustomID( $button );
                 
                 @endphp
 
-                @include( 'modules.button', [ 'classes' => $classes, 'id' => $id, 'url' => $button->button_url, 'label' => $button->button_label, 'target' => $target ] )
+                @include( 'modules.button', [ 'classes' => $classes, 'id' => $id, 'source' => $button->button_source, 'inner_classes' => $inner_classes, 'inner_id' => $inner_id, 'label' => $button->button_label, 'size_class' => $size_class, 'target' => $target ] )
                 
             @endforeach
 
