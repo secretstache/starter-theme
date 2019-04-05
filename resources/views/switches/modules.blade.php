@@ -53,6 +53,11 @@
             @include( 'modules.form', [ 'classes' => $classes, 'id' => $id, 'form_id' => $module->form ] )
             @break
 
+        @case( 'map' )
+
+            @include( 'modules.map', [ 'classes' => $classes, 'id' => $id ] )
+            @break
+
         @endswitch {{-- $module->acf_fc_layout --}}
 
 @endforeach {{-- $modules as $module --}}
