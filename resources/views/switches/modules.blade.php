@@ -29,9 +29,9 @@
 
             @break
 
-        @case( 'html_editor' )
+        @case( 'text_editor' )
 
-            @include( 'modules.html-editor', [ 'classes' => $classes, 'id' => $id, 'html_editor' => $module->html_editor_inner_text ] )
+            @include( 'modules.text-editor', [ 'classes' => $classes, 'id' => $id, 'text_editor' => $module->text_editor_inner_text ] )
             @break
 
         @case( 'image' )
