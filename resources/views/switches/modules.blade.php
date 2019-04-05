@@ -10,6 +10,16 @@
 
     @switch( $module->acf_fc_layout )
 
+        @case( 'headline' )
+
+            @include( 'modules.headline', [ 'classes' => $classes, 'id' => $id, 'headline' => $module->headline, 'subheadline' => $module->subheadline ] )
+            @break
+
+        @case( 'text_editor' )
+
+            @include( 'modules.text-editor', [ 'classes' => $classes, 'id' => $id, 'text_editor' => $module->text_editor_inner_text ] )
+            @break
+            
         @case( 'buttons' )
             
             @foreach ($module->buttons as $button)
@@ -28,21 +38,16 @@
 
             @break
 
-        @case( 'text_editor' )
-
-            @include( 'modules.text-editor', [ 'classes' => $classes, 'id' => $id, 'text_editor' => $module->text_editor_inner_text ] )
-            @break
-
         @case( 'image' )
 
             @include( 'modules.image', [ 'classes' => $classes, 'id' => $id, 'src' => $module->image_inner->url, 'alt' => $module->image_inner->alt, 'add_image_link' => $module->option_add_image_link, 'source' => $module->option_image_link_source ] )
             @break
 
-        @case( 'headline' )
+        @case( 'video' )
 
-            @include( 'modules.headline', [ 'classes' => $classes, 'id' => $id, 'headline' => $module->headline, 'subheadline' => $module->subheadline ] )
+            @include( 'modules.video', [ 'classes' => $classes, 'id' => $id, 'video' => $module->video ] )
             @break
 
-    @endswitch {{-- $module->acf_fc_layout --}}
+        @endswitch {{-- $module->acf_fc_layout --}}
 
 @endforeach {{-- $modules as $module --}}
