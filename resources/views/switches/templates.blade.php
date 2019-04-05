@@ -20,6 +20,19 @@
             @include( 'templates.columns', [ 'classes' => $classes, 'id' => $id, 'style' => $style, 'columns_width' => $columns_width ] )
             @break
 
+        @case('call_to_action')
+            
+            @php 
+            
+                $classes = $builder->getCustomClasses( "template", 'cta', '', $template );
+                $id = $builder->getCustomID( $template );
+                $style = ( $template->option_background == 'Image' && !is_null( $template->option_background_image ) ) ? ' style="background-image: url(' . $template->option_background_image->url . ')" ' : '';
+                                
+            @endphp
+
+            @include( 'templates.call-to-action', [ 'classes' => $classes, 'id' => $id, 'style' => $style ] )
+            @break
+
     @endswitch {{-- $template->acf_fc_layout --}}
 
 @endforeach {{-- $templates as $template  --}}
