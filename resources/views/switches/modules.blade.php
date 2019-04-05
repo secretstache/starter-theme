@@ -38,9 +38,9 @@
             @include( 'modules.image', [ 'classes' => $classes, 'id' => $id, 'src' => $module->image_inner->url, 'alt' => $module->image_inner->alt ] )
             @break
 
-        @case( 'header' )
+        @case( 'headline' )
 
-            @include( 'modules.header', [ 'classes' => $classes, 'id' => $id, 'headline' => $module->headline, 'subheadline' => $module->subheadline ] )
+            @include( 'modules.headline', [ 'classes' => $classes, 'id' => $id, 'headline' => $module->headline, 'subheadline' => $module->subheadline ] )
             @break
 
     @endswitch {{-- $module->acf_fc_layout --}}
