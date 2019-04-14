@@ -1,7 +1,8 @@
 @php 
 
-$alignment = is_page_template('landing-page.php') ? 'center' : 'justify';
-$link = is_page_template('landing-page.php') ? false : true;
+$is_landing_page = is_page_template('views/template-landing-page.blade.php') ? true : false;
+$alignment = is_page_template('views/template-landing-page.blade.php') ? 'center' : 'justify';
+$link = is_page_template('views/template-landing-page.blade.php') ? false : true;
 
 @endphp
 
@@ -14,29 +15,29 @@ $link = is_page_template('landing-page.php') ? false : true;
 			<div class="brand cell shrink">
 			
 				@if ($link)
-
 					<a href="{{home_url()}}">
+				@endif
 
-						@if ($logo = get_field('brand_logo', 'options'))
-			
-							@if ($icon = get_field('brand_icon', 'options'))
-								<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] }}" class="logo show-for-medium">
-								<img src="{{ $icon['url'] }}" alt="{{ $icon['alt'] }}" class="icon hide-for-medium">
-							@else
-								<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] }}" class="logo">
-							@endif
-						
+					@if ($logo = get_field('brand_logo', 'options'))
+		
+						@if ($icon = get_field('brand_icon', 'options'))
+							<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] }}" class="logo show-for-medium">
+							<img src="{{ $icon['url'] }}" alt="{{ $icon['alt'] }}" class="icon hide-for-medium">
 						@else
-							<span class="site-title">{{ get_bloginfo('name') }}</span>
+							<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] }}" class="logo">
 						@endif
-						
-					</a>
-						
+					
+					@else
+						<span class="site-title">{{ get_bloginfo('name') }}</span>
+					@endif
+				
+				@if($link)	
+					</a>						
 				@endif
 		
 			</div>
 	
-			@if ( !is_page_template('landing-page.php') && has_nav_menu('primary_navigation') )
+			@if ( !$is_landing_page && has_nav_menu('primary_navigation') )
 			
 				<nav class="primary-navigation cell shrink">
 
@@ -54,4 +55,4 @@ $link = is_page_template('landing-page.php') ? false : true;
 		
 		</div>    
 	</div>
-	</header>
+</header>
