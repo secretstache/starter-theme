@@ -32,6 +32,19 @@
 
             @include( 'templates.call-to-action', [ 'classes' => $classes, 'id' => $id, 'style' => $style ] )
             @break
+        
+        @case('related_content')
+            
+            @php 
+            
+                $classes = $builder->getCustomClasses( "template", 'related-posts', '', $template );
+                $id = $builder->getCustomID( $template );
+                $style = ( $template->option_background == 'Image' && !is_null( $template->option_background_image ) ) ? ' style="background-image: url(' . $template->option_background_image->url . ')" ' : '';
+                                
+            @endphp
+
+            @include( 'templates.related-content', [ 'classes' => $classes, 'id' => $id, 'style' => $style ] )
+            @break
 
     @endswitch {{-- $template->acf_fc_layout --}}
 
