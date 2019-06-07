@@ -23,16 +23,8 @@
         @case( 'buttons' )
             
             @foreach ($module->buttons as $button)
-                
-                @php 
 
-                    $target = $button->option_button_target;
-                    $inner_classes = ( $button->option_html_classes ) ? " " . $button->option_html_classes : '';
-                    $inner_id = $builder->getCustomID( $button );
-                
-                @endphp
-
-                @include( 'modules.button', [ 'classes' => $classes, 'id' => $id, 'source' => $button->button_source, 'inner_classes' => $inner_classes, 'inner_id' => $inner_id, 'label' => $button->button_label, 'size_class' => $button->option_button_size, 'target' => $target ] )
+                @include( 'modules.button', [ 'button' => $button ] )
                 
             @endforeach
 

@@ -28,13 +28,15 @@
                         <div {!! $id !!} class="cell small-11 medium-{{ $width . ' i-' . $key }} {{ $column->option_mobile_sort_order }}{{ $custom_classes }}" >
                             
                             <div class="inner">
+                                <div class="content">
 
-                                @if( !empty( $column->modules ) )
+                                    @if( !empty( $column->modules ) )
 
-                                    @include( 'switches.modules' )
-                                
-                                @endif {{--  !empty( $column->modules --}}
+                                        @include( 'switches.modules' )
 
+                                    @endif {{--  !empty( $column->modules --}}
+
+                                </div>
                             </div> {{-- inner --}}
                         </div> {{-- cell --}}
                         
