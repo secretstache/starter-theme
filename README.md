@@ -1,6 +1,6 @@
 # Starter Theme
 
-**Starter Theme** is essentially a theme boilerplate for SSM projects built on top of [Sage/Roots](https://github.com/roots/sage) (starter theme with a modern development workflow). It is responsible for the *presentable* layer of a project, builds assets and views, uses [Blade templating engine](https://laravel.com/docs/5.7/blade) to render front-end and contains the public presentation of SSMPB entiites.
+**Starter Theme** is essentially a theme boilerplate for SSM projects built on top of [Sage/Roots](https://github.com/roots/sage) (starter theme with a modern development workflow). It is responsible for the *presentable* layer of a project, builds assets and views, uses [Blade templating engine](https://laravel.com/docs/5.7/blade) to render front-end and contains the public presentation of SSMPB entities.
 
 ## Main Concepts
 
