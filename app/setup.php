@@ -11,7 +11,7 @@ use Roots\Sage\Template\BladeProvider;
  * Theme assets
  */
 add_action('wp_enqueue_scripts', function () {
-    
+
     wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
     wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
 
@@ -22,14 +22,14 @@ add_action('wp_enqueue_scripts', function () {
 }, 100);
 
 add_action('admin_enqueue_scripts', function () {
-    
+
     wp_enqueue_script('columns_width', asset_path('scripts/columns_width.js'), ['jquery'], null, true);
-    
+
     wp_localize_script( 'columns_width', 'custom', array(
-		'ajax_url' => admin_url( 'admin-ajax.php' ), 
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
 		'stylesheet_directory' => get_stylesheet_directory_uri()
     ));
-    
+
 }, 100);
 
 /**
@@ -40,11 +40,11 @@ add_action('after_setup_theme', function () {
      * Enable features from Soil when plugin is activated
      * @link https://roots.io/plugins/soil/
      */
-    add_theme_support('soil-clean-up');
-    add_theme_support('soil-jquery-cdn');
-    add_theme_support('soil-nav-walker');
-    add_theme_support('soil-nice-search');
-    add_theme_support('soil-relative-urls');
+    // add_theme_support('soil-clean-up');
+    // add_theme_support('soil-jquery-cdn');
+    // add_theme_support('soil-nav-walker');
+    // add_theme_support('soil-nice-search');
+    // add_theme_support('soil-relative-urls');
 
     /**
      * Enable plugins to manage the document title
