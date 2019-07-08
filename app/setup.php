@@ -36,6 +36,15 @@ add_action('admin_enqueue_scripts', function () {
  * Theme setup
  */
 add_action('after_setup_theme', function () {
+
+	// Automatically activate CFP when SST is activated
+
+	$plugin_slug = "/core-functionality-plugin/core-functionality-plugin.php";
+
+	if( file_exists( WP_PLUGIN_DIR . $plugin_slug) && !is_plugin_active( $plugin_slug ) ) {
+		activate_plugin( $plugin_slug );
+	}
+
     /**
      * Enable features from Soil when plugin is activated
      * @link https://roots.io/plugins/soil/
@@ -84,7 +93,8 @@ add_action('after_setup_theme', function () {
      * Use main stylesheet for visual editor
      * @see resources/assets/styles/layouts/_tinymce.scss
      */
-    add_editor_style(asset_path('styles/main.css'));
+	add_editor_style(asset_path('styles/main.css'));
+
 }, 20);
 
 /**
