@@ -1,8 +1,8 @@
-    
+
 @foreach( $column->modules as $key => $module )
 
     @php
-        
+
         $classes = $builder->getCustomClasses( "module", '', $key, $module );
         $id = $builder->getCustomID( $module );
 
@@ -10,22 +10,22 @@
 
     @switch( $module->acf_fc_layout )
 
-        @case( 'headline' )
+        @case( 'header' )
 
-            @include( 'modules.headline', [ 'classes' => $classes, 'id' => $id, 'headline' => $module->headline, 'subheadline' => $module->subheadline ] )
+            @include( 'modules.header', [ 'classes' => $classes, 'id' => $id, 'headline' => $module->headline, 'subheadline' => $module->subheadline ] )
             @break
 
         @case( 'text_editor' )
 
             @include( 'modules.text-editor', [ 'classes' => $classes, 'id' => $id, 'text_editor' => $module->text_editor_inner_text ] )
             @break
-            
+
         @case( 'buttons' )
-            
+
             @foreach ($module->buttons as $button)
 
                 @include( 'modules.button', [ 'button' => $button ] )
-                
+
             @endforeach
 
             @break
