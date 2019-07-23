@@ -1,8 +1,8 @@
 @php
 
 $is_landing_page = is_page_template('views/template-landing-page.blade.php') ? true : false;
-$alignment = is_page_template('views/template-landing-page.blade.php') ? 'center' : 'justify';
-$link = is_page_template('views/template-landing-page.blade.php') ? false : true;
+$alignment = $is_landing_page ? 'center' : 'justify';
+$link = $is_landing_page ? false : true;
 
 @endphp
 
