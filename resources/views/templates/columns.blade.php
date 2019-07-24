@@ -21,11 +21,14 @@
 
                     @foreach( $template->template_columns as $key => $column )
 
-                        @php $width = ($columns_width != null) ? explode( '_', $columns_width )[$key] : 12 / count( $template->template_columns ); @endphp
-                        @php $id = ( $column->option_html_id ) ? 'id="' . $column->option_html_id . '"' : '' @endphp
-                        @php $custom_classes = ( $column->option_html_classes ) ? " " . $column->option_html_classes : '' @endphp
+						@php
+							$width = ($columns_width != null) ? explode( '_', $columns_width )[$key] : 12 / count( $template->template_columns );
+                        	$id = ( $column->option_html_id ) ? 'id="' . $column->option_html_id . '"' : '';
+							$custom_classes = ( $column->option_html_classes ) ? " " . $column->option_html_classes : '';
+							$column_i = $key+1;
+						@endphp
 
-                        <div {!! $id !!} class="cell small-11 medium-{{ $width . ' i-' . $key }} {{ $column->option_mobile_sort_order }}{{ $custom_classes }}" >
+                        <div {!! $id !!} class="cell small-11 medium-{{ $width . ' i-' . $column_i }} {{ $column->option_mobile_sort_order }}{{ $custom_classes }}" >
 
                             <div class="inner">
                                 <div class="content">
