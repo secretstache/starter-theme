@@ -53,16 +53,6 @@
 
 								@endforeach
 
-
-
-								@foreach ($module->buttons as $button)
-
-									@include( 'modules.button', [ 'button' => $button, 'inner_id' => $inner_id, 'inner_classes' => $inner_classes, 'size_class' => $size_class ] )
-
-								@endforeach
-
-
-
                             @endif
 
                         </div>
