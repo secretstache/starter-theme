@@ -1,8 +1,8 @@
 @if( $template->option_status )
 
-    <section {!! $id !!} {!! $classes !!} {!! $style !!} >
+	<section {!! $id !!} {!! $classes !!} {!! $style !!} >
 
-        @if( $template->option_background == 'Video' && !is_null( $template->option_background_video ) )
+        @if( $template->option_background == 'video' && !is_null( $template->option_background_video ) )
 
             @include( 'partials.video-background', [ 'video' => $template->option_background_video ] )
 

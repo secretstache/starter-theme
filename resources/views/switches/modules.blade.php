@@ -3,8 +3,8 @@
 
     @php
 
+		$id = $builder->getCustomID( $module );
         $classes = $builder->getCustomClasses( "module", '', $key, $module );
-        $id = $builder->getCustomID( $module );
 
     @endphp
 
@@ -22,9 +22,20 @@
 
         @case( 'buttons' )
 
-            @foreach ($module->buttons as $button)
+			@foreach ($module->buttons as $button)
 
-                @include( 'modules.button', [ 'button' => $button ] )
+				@php
+
+					$wrapper_id = $builder->getCustomID( $module );
+					$wrapper_classes = $builder->getCustomClasses( "module", $button->option_button_alignment, $key, $module );
+
+					$inner_id = $builder->getCustomID( $button );
+                    $inner_classes = ( $button->option_html_classes ) ? " " . $button->option_html_classes : '';
+					$size_class = ($button->option_button_size) ? " " . $button->option_button_size : '';
+
+                @endphp
+
+                @include( 'modules.button', [ 'button' => $button, 'inner_id' => $inner_id, 'inner_classes' => $inner_classes, 'size_class' => $size_class ] )
 
             @endforeach
 
