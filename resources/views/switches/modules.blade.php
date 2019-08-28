@@ -15,7 +15,7 @@
             @include( 'modules.header', [ 'classes' => $classes, 'id' => $id, 'headline' => $module->headline, 'subheadline' => $module->subheadline ] )
             @break
 
-        @case( 'text_editor' )
+        @case( 'text-editor' )
 
             @include( 'modules.text-editor', [ 'classes' => $classes, 'id' => $id, 'text_editor' => $module->text_editor_inner_text ] )
             @break
