@@ -10,13 +10,14 @@
 
         @if( $template->option_include_template_header )
 
-                @include( 'partials.template-header', [ 'headline' => $template->option_template_headline, 'subheadline' => $template->option_template_subheadline ] )
+			@include( 'partials.template-header', [ 'headline' => $template->option_template_headline, 'subheadline' => $template->option_template_subheadline ] )
 
-        @endif {{-- $option_include_template_header --}}
+        @endif
 
         @if( !empty( $template->template_columns ) )
 
             <div class="grid-container">
+
                 <div class="grid-x grid-margin-x {{ "align-" . $template->option_x_alignment . " align-" . $template->option_y_alignment . " has-" . count( $template->template_columns ) . "-cols" }} ">
 
                     @foreach( $template->template_columns as $key => $column )
@@ -31,24 +32,24 @@
                         <div {!! $id !!} class="cell small-11 medium-{{ $width . ' i-' . $column_i }} {{ $column->option_mobile_sort_order }}{{ $custom_classes }}" >
 
                             <div class="inner">
-                                <div class="content">
 
-                                    @if( !empty( $column->modules ) )
+								@if( !empty( $column->modules ) )
 
-                                        @include( 'switches.modules' )
+									@include( 'switches.modules' )
 
-                                    @endif {{--  !empty( $column->modules --}}
+								@endif
 
-                                </div>
-                            </div> {{-- inner --}}
-                        </div> {{-- cell --}}
+							</div>
 
-                    @endforeach {{-- $columns as $key => $column --}}
+                        </div>
 
-                </div> {{-- main --}}
-            </div>  {{-- grid-container --}}
+                    @endforeach
 
-        @endif {{-- !empty( $columns ) --}}
+				</div>
+
+            </div>
+
+        @endif
 
     </section>
 
