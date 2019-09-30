@@ -4,28 +4,32 @@
 
 		@foreach ($buttons as $button)
 
-			@php
-				$inner_classes = ( $button->option_html_classes ) ? " " . $button->option_html_classes : '';
-				$inner_id = $builder->getCustomID( $button );
-			@endphp
+			<div class="button-wrap">
 
-			@if ( $button->button_source == 'internal' )
+				@php
+					$inner_classes = ( $button->option_html_classes ) ? " " . $button->option_html_classes : '';
+					$inner_id = $builder->getCustomID( $button );
+				@endphp
 
-				@if ( $button->button_label && $button->button_page_id )
+				@if ( $button->button_source == 'internal' )
 
-					<a {!! $inner_id !!} class="button {!! $button->option_button_size !!}{!! $inner_classes !!}" href="{!! get_permalink( $button->button_page_id ) !!}" target="{!! $button->option_button_target !!}"> {!! $button->button_label !!} </a>
+					@if ( $button->button_label && $button->button_page_id )
+
+						<a {!! $inner_id !!} class="button {!! $button->option_button_size !!}{!! $inner_classes !!}" href="{!! get_permalink( $button->button_page_id ) !!}" target="{!! $button->option_button_target !!}"> {!! $button->button_label !!} </a>
+
+					@endif
+
+				@else
+
+					@if ( $button->button_label && $button->button_url )
+
+						<a {!! $inner_id !!} class="button {!! $button->option_button_size !!}{!! $inner_classes !!}" href="{!! $button->button_url !!}" target="{!! $button->option_button_target !!}"> {!! $button->button_label !!} </a>
+
+					@endif
 
 				@endif
 
-			@else
-
-				@if ( $button->button_label && $button->button_url )
-
-					<a {!! $inner_id !!} class="button {!! $button->option_button_size !!}{!! $inner_classes !!}" href="{!! $button->button_url !!}" target="{!! $button->option_button_target !!}"> {!! $button->button_label !!} </a>
-
-				@endif
-
-			@endif
+			</div>
 
 		@endforeach
 
