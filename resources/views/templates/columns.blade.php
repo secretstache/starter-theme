@@ -24,12 +24,16 @@
 
 						@php
 							$width = ($columns_width != null) ? explode( '_', $columns_width )[$key] : 12 / count( $template->template_columns );
-                        	$id = ( $column->option_html_id ) ? 'id="' . $column->option_html_id . '"' : '';
+							$width = ( count( $template->template_columns ) == 1 && $width == 10 ) ? 12 : $width;
+
+							$medium_order_class = ( $key == 1 && $template->template_columns[0]->option_mobile_sort_order == 'medium-order-1' ) ? 'medium-order-2' : $column->option_mobile_sort_order;
+
+							$id = ( $column->option_html_id ) ? 'id="' . $column->option_html_id . '"' : '';
 							$custom_classes = ( $column->option_html_classes ) ? " " . $column->option_html_classes : '';
 							$column_i = $key+1;
 						@endphp
 
-                        <div {!! $id !!} class="cell small-11 medium-{{ $width . ' i-' . $column_i }} {{ $column->option_mobile_sort_order }}{{ $custom_classes }}" >
+                        <div {!! $id !!} class="cell small-11 medium-{{ $width . ' i-' . $column_i }} {{ $medium_order_class }}{{ $custom_classes }}" >
 
                             <div class="inner">
 
