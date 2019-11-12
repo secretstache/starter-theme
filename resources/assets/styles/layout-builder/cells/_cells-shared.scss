@@ -1,28 +1,9 @@
-// .cell {
-//   display: flex;
-// }
+section.content-block {
+    .cell {
 
-// .cell .inner {
-//   display: flex;
-//   flex-direction: column;
-// }
-
-.cell {
-    .inner {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-  }
-  
-  .has-2-cols {
-    > .cell {
-      @include breakpoint(small only) {
-        margin-top: 0;
-  
-        &.medium-order-2 {
-          margin-top: rem-calc(24);
+        &[class^="bg-"],
+        &[class*="bg-"] {
+            @include responsive-padding('all', $module-padding);
         }
-      }
     }
-  }
+}

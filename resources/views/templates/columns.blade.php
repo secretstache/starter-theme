@@ -10,9 +10,9 @@
 
         @if( $template->option_include_template_header )
 
-			@include( 'partials.template-header', [ 'headline' => $template->option_template_headline, 'subheadline' => $template->option_template_subheadline ] )
+			    @include( 'partials.template-header', [ 'headline' => $template->option_template_headline, 'subheadline' => $template->option_template_subheadline, "include_header_icon" => $template->include_header_icon,  "header_icon" => $template->header_icon ] )
 
-        @endif
+            @endif
 
         @if( !empty( $template->template_columns ) )
 

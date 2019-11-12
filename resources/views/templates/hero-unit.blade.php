@@ -1,47 +1,70 @@
 <section {!! $id !!} {!! $classes !!} {!! $style !!} >
 
-    @if( $column->option_background == 'video' && !is_null( $column->option_background_video ) )
+    @if( $option_background == 'video' && !is_null( $option_background_video ) )
 
-        @include( 'partials.video-background', [ 'video' => $column->option_background_video ] )
-
-    @endif
-
-    @if( $column->option_include_template_header )
-
-		@include( 'partials.template-header', [ 'headline' => $column->option_template_headline, 'subheadline' => $column->option_template_subheadline ] )
+        @include( 'partials.video-background', [ 'video' => $option_background_video ] )
 
     @endif
+    
+    <div class="grid-container">
 
-    @if( !empty( $column->columns ) )
+        <div class="grid-x grid-margin-x align-center">
 
-            <div class="grid-container">
+            <div class="cell small-11 medium-12">
 
-                <div class="main grid-x grid-margin-x {{ "align-" . $column->option_x_alignment . " align-" . $column->option_y_alignment . " has-" . count( $column->columns ) . "-cols" }} ">
+                <header class="module stack-order-1 text-center">
 
-                    @foreach( $column->columns as $key => $column )
+                    <div class="hero-unit-slider">
 
-                        @php $id = ( $column->option_html_id ) ? 'id="' . $column->option_html_id . '"' : '' @endphp
-                        @php $custom_classes = ( $column->option_html_classes ) ? " " . $column->option_html_classes : '' @endphp
+                        @foreach ($header_hero_unit as $slide)
 
-						<div {!! $id !!} class="cell small-11 {{ $column->option_mobile_sort_order }}{{ $custom_classes }}">
+                            <div class="slide">
 
-                            <div class="inner">
+                                <h2 class="headline">
+                                    {!! $slide->hero_unit_headline!!} 
+                                </h2>
+                            
+                                <p class="subheadline">{!! $slide->hero_unit_subheadline !!}</p>
 
-                                @if( !empty( $column->modules ) )
+                                    @if ($include_scroll_to_next_section)
 
-                                    @include( 'switches.modules' )
+                                        @php
 
-                                @endif
+                                            $module = (object)array(
+                                                "acf_fc_layout" => "buttons"
+                                            );
 
+                                            $button = (object)array(
+                                                "button_source" => "custom",
+                                                "button_label" => "Enter",
+                                                "button_url"  => "#main",
+                                                "option_button_size" => "medium",
+                                                "option_button_target" => "_self",
+                                                "option_html_classes" => "",
+                                                "option_html_classes" => "button-round white scroll-down"
+                                            );
+
+                                            $wrapper_id = $builder->getCustomID( $module );
+                                            $wrapper_classes = $builder->getCustomClasses( "module", "", $key, $module );
+                                        
+                                        @endphp
+
+                                        @include( 'modules.button', [ 'buttons' => array( $button ), 'wrapper_id' => $wrapper_id, 'wrapper_classes' => $wrapper_classes ] )
+
+                                    @endif
+                                
                             </div>
-                        </div>
 
-                    @endforeach
+                        @endforeach
+                    
+                    </div>
 
-				</div>
+                </header>
 
             </div>
 
-         @endif
+        </div>
+    
+    </div>
 
 </section>

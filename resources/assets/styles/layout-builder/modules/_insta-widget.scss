@@ -1,0 +1,36 @@
+.module.insta-widget {
+    .square {
+        margin-bottom: rem-calc(15);
+        height: rem-calc(70);
+        width: rem-calc(70);
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    
+        .hover {
+            background: rgba($color: $yellow, $alpha: 0.45);
+            height: 100%;
+            widows: 100%;
+            opacity: 0;
+            transition: .6s all;
+        }
+    
+        .look-icon {
+            opacity: 0;
+            margin: rem-calc(25);
+            transition: .3s all;
+        }
+    
+        &:hover {
+            cursor: pointer;
+    
+            .hover {
+                opacity: 1;
+            }
+    
+            .look-icon {
+                opacity: 1;
+            }
+        }
+    }
+}

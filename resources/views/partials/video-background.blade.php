@@ -1,11 +1,11 @@
-<div class="template-video">
+<div class="overlay"></div>
+
+<div class="video-overlay">
     
-    <video autoplay loop>
+    <video muted autoplay playsinline loop>
     
         <source src=" {!! $video->url !!} " type="video/mp4">
     
     </video>
 
 </div>
-
-<div class="overlay"></div>

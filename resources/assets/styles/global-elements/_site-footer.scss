@@ -1,0 +1,123 @@
+footer.site-footer {
+    background: $black;
+    color: $brownish-grey;
+    font-size: rem-calc(12);
+    font-weight: 600;
+    @include responsive-padding('top', rem-calc(60));
+
+    .footer-title-first {
+        color: $gold;
+        font-size: rem-calc(12);
+        font-weight: 600;
+        line-height: 2.5;
+        position: relative;
+        text-transform: uppercase;
+        @include responsive-margin('bottom', rem-calc(25));
+    }
+
+    .footer-title {
+        color: $white;
+        font-size: rem-calc(12);
+        font-weight: 600;
+        line-height: 2.5;
+        position: relative;
+        text-transform: uppercase;
+        @include responsive-margin('bottom', rem-calc(25));
+
+        @include breakpoint (small only) {
+          margin-top: rem-calc(30);
+        }
+
+        &:after {
+            content: '';
+            height: rem-calc(2);
+            width: rem-calc(19);
+            background: $gold;
+            left: 0;
+            bottom: 0;
+            position: absolute;
+        }
+    }
+
+    .text-editor {
+        @include responsive-margin('bottom', rem-calc(25));
+    }
+
+    .logo {
+      fill: #b2b2b2;
+      opacity: .2;
+      width: rem-calc(170);
+      height: rem-calc(53);
+    }
+
+    .menu {
+        a {
+          padding: 0;
+          color: $brownish-grey;
+          text-transform: uppercase;
+          font-weight: 600;
+    
+          &:hover {
+            color: $gold;
+          }
+        }
+    
+        li {
+          margin-bottom: rem-calc(24);
+
+          &.active a {
+
+          	background: transparent
+          }
+    
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .socials {
+        display: flex;
+        justify-content: flex-end;
+        list-style-type: none;
+        margin: 0;
+
+        li {
+            margin-left: rem-calc(40);
+
+            a:hover {
+              cursor: pointer;
+              transition: .3s all;
+              
+              svg {
+                fill: $gold;
+              }
+            }
+
+            svg {
+              display: block;
+            }
+        }
+
+        @include breakpoint (small only) {
+          justify-content: center;
+
+          li {
+            margin: rem-calc(20);
+          }
+        }
+
+      }
+
+    .footer-section {
+        @include responsive-padding('top', rem-calc(60));
+        @include responsive-padding('bottom', rem-calc(30));
+        color: #3a3a3a;
+        font-weight: 600;
+    }
+
+    .text-editor {
+      line-height: rem-calc(24);
+      font-size: rem-calc(12);
+    }
+}

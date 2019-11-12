@@ -1,0 +1,29 @@
+header.module.module-header {
+    &.align-center {
+        text-align: center;
+    }
+
+    @include responsive-margin("bottom", 35);
+
+    &.align-center {
+        text-align: center;
+    }
+
+    .headline {
+        @include responsive-type(24);
+        @include responsive-margin("top", 34);
+        font-weight: bold;
+
+        span {
+            display: block;
+        }
+    }
+
+    .subheadline {
+        order: 1;
+        font-family: $secondary-font-family;
+        color: $brownish-grey;
+        @include responsive-type(18);
+        font-style: italic;
+    }
+}

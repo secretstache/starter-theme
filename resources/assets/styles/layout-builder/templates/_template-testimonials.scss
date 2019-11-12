@@ -1,0 +1,137 @@
+.content-block.template-testimonials {
+    
+    .testimonials-carousel {
+        opacity: 0;
+    }
+
+    .slick-slide {
+        text-align: center;
+        color: $black;
+        margin: 10px;
+        transform: scale(0.7, 0.7);
+        transition: transform 0.3s;
+        &.slick-center {
+            transform: scale(1, 1);
+        }
+
+        .testimonial-photo {
+            border-radius: 50%;
+            max-width: rem-calc(143);
+            height: rem-calc(143);
+            float: none;
+            margin: 0 auto;
+        }
+
+        .testimonial-text {
+            font-family: $secondary-font-family;
+            font-style: italic;
+            @include responsive-type(18,15);
+            color: $warm-grey;
+            @include responsive-margin("bottom", 40);
+            max-width: rem-calc(738);
+            position: relative;
+            float: none;
+            margin: 0 auto;
+        }
+
+        .testimonial-wrap {
+            @include responsive-margin("top", 52);
+        }
+
+        .fancy {
+            line-height: 0.5;
+            text-align: center;
+            @include responsive-margin("bottom", 24);
+        }
+        .fancy span {
+            display: inline-block;
+            position: relative;  
+        }
+        .fancy span:before,
+        .fancy span:after {
+            content: "";
+            position: absolute;
+            height: rem-calc(1);
+            background: $grey;
+            top: 50%;
+            width: rem-calc(45);
+        }
+        .fancy span:before {
+            right: 100%;
+            margin-right: rem-calc(25);
+        }
+        .fancy span:after {
+            left: 100%;
+            margin-left: rem-calc(25);
+        }
+
+        .name {
+            @include responsive-type(14,12);
+            letter-spacing: rem-calc(1.4);
+            text-transform: uppercase;;
+            @include responsive-margin("bottom", 22);
+        }
+
+        .position {
+            font-size: rem-calc(12);
+            letter-spacing: rem-calc(1.2);
+            text-transform: uppercase;
+            color: $brownish-grey;
+            font-family: $secondary-font-family;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+    }
+
+    @include breakpoint (small only ) {
+        .slick-arrow {
+            max-width: rem-clac(20);
+            max-height: rem-calc(20);
+            display: inline-block;
+        }
+    
+        .slick-next {
+            right: -25px;
+        }
+    }
+
+    
+    .slick-current {
+        .testimonial-wrap {
+            @include responsive-margin("top", 52);
+        }
+
+        .testimonial-photo {
+            border: rem-calc(6) solid $gold;
+        }   
+    }
+
+      .slick-dots {
+        display: flex;
+        @include horizontal-center;
+        color: $grey;
+        
+        &:hover {
+            cursor: pointer;
+        }
+
+        .slick-active {
+            color: $gold;
+        }
+      }
+
+      .slick-dots li button {
+        font-size: 0;
+        line-height: 0;
+        display: block;
+        width: rem-calc(12);
+        height: rem-calc(12);
+        padding: 5px;
+        cursor: pointer;
+        color: transparent;
+        border: 0;
+        outline: 0;
+        background: 0 0;
+    }
+  }

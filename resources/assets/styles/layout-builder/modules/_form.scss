@@ -1,0 +1,144 @@
+.module.form {
+
+    [type='text'],
+    [type='password'],
+    [type='date'],
+    [type='datetime'],
+    [type='datetime-local'],
+    [type='month'],
+    [type='week'],
+    [type='email'],
+    [type='number'],
+    [type='search'],
+    [type='tel'],
+    [type='time'],
+    [type='url'],
+    [type='color'],
+    textarea {
+
+        background: transparent;
+        padding-bottom: rem-calc(19);
+        border: 1px solid transparent;
+        border-bottom: rem-calc(1) solid $white;
+        box-shadow: none;
+        color: $white;
+
+        &:focus {
+            outline: none;
+            border-bottom: rem-calc(1) solid $gold;
+        }
+
+        &::placeholder {
+            color: $white;
+            font-family: $secondary-font-family;
+            font-style: italic;
+            font-size: rem-calc(12);
+            letter-spacing: rem-calc(1.2);
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+    }
+
+    textarea {
+        height: auto;
+        // @include responsive-margin("top", 60);
+    }
+
+    .gform_fields {
+        display: flex;
+        flex-wrap: wrap;
+    
+        >li {
+          width: 100%;
+          margin: rem-calc(0 0 15);
+    
+          @include breakpoint(medium) {
+            &.third-width {
+              width: 33%;
+            }
+          }
+        }
+      }
+
+    
+
+    //style input type="file"
+    .input-file {
+        opacity: 0;
+
+        input[type="file"] {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+
+            +label {
+                display: block;
+                cursor: pointer;
+                width: 100%;
+                text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            &:focus+label,
+            +label:hover {
+                background-color: $black;
+                color: $white;
+            }
+
+            &:focus+label {
+                outline: 1px dotted #000;
+                outline: -webkit-focus-ring-color auto 5px;
+            }
+
+            +label * {
+                pointer-events: none;
+            }
+        }
+    }
+
+    .gfield {
+        .asterisk {
+            color: $gold;
+            position: absolute;
+            top: rem-calc(12);
+        }
+    }
+
+    .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type='file']) {
+        padding-left: rem-calc(10);
+    }
+
+    .gform_wrapper {
+        margin: 0;
+    }
+    
+    .ginput_container {
+        position: relative;
+    }
+
+    .gform_button {
+        background: transparent;
+        text-transform: uppercase;
+        font-size: rem-calc(14);
+        letter-spacing: rem-calc(5.6);
+        padding: rem-calc(15) rem-calc(35);
+        border: rem-calc(1) solid $white;
+        color: $white;
+        @include responsive-margin("top", 45);
+        backface-visibility: hidden;
+        float: right;
+        font-weight: 600;
+
+        &:hover {
+            background: $white;
+            color: $black;
+            transition: .3s all;
+            cursor: pointer;
+        }
+    }
+
+}

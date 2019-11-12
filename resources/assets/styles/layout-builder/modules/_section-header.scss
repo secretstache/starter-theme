@@ -1,0 +1,58 @@
+header.section-header {
+    @include responsive-margin("bottom", $module-margin * 2);
+
+    &.align-center {
+        text-align: center;
+    }
+
+    .headline {
+        @include responsive-type(18);
+        @include responsive-margin("top", 34);
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: rem-calc(3.6);
+        span {
+            display: block;
+        }
+    }
+
+    .subheadline {
+        order: 1;
+        font-family: $secondary-font-family;
+        color: $warm-grey;
+        @include responsive-type(18);
+        font-style: italic;
+        margin-top: 0;
+    }
+
+    .section-icon {
+        @include responsive-margin("bottom", 25);
+        @include responsive-margin("top", 25);
+    }
+
+    .fancy {
+        line-height: 0.5;
+        text-align: center;
+      }
+      .fancy span {
+        display: inline-block;
+        position: relative;  
+      }
+      .fancy span:before,
+      .fancy span:after {
+        content: "";
+        position: absolute;
+        height: rem-calc(1);
+        background: $grey;
+        top: 50%;
+        width: rem-calc(45);
+      }
+      .fancy span:before {
+        right: 100%;
+        margin-right: rem-calc(25);
+      }
+      .fancy span:after {
+        left: 100%;
+        margin-left: rem-calc(25);
+      }
+}

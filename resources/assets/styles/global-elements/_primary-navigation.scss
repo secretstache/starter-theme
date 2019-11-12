@@ -1,0 +1,45 @@
+.primary-navigation {
+    .menu-item a {
+        text-transform: uppercase;
+        border-bottom: 2px solid transparent;
+        padding-top: rem-calc(16) !important;
+        padding-bottom: rem-calc(25) !important;
+        font-weight: 600;
+
+        &:hover {
+            color: $gold;
+            border-color: $gold;
+        }
+    }
+}
+
+li {
+    &.active a {
+
+    	background: transparent
+    }
+}
+
+.dropdown {
+
+    .is-active a {
+        color: $white;
+        background:transparent;
+
+        &:hover {
+            color: $gold;
+        }
+    }
+}
+
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+    border: 0;
+    width: rem-calc(9);
+    height: rem-calc(5);
+    background: url('../images/arrow-down.svg') no-repeat;
+    right: 0;
+}
+
+.dropdown.menu > li.is-active > a {
+    color: $gold;
+}

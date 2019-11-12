@@ -1,0 +1,13 @@
+.content-block.template-partners {
+    .partner {
+        width: 100%;
+        height: rem-calc(110);
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .section-header {
+        @include responsive-margin("bottom", 113);
+    }
+}

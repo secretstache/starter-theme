@@ -1,0 +1,27 @@
+.module.twitter-widget {
+    @include responsive-margin('top', rem-calc(25));
+
+    .tweet {
+        @include responsive-margin('bottom', rem-calc(30));
+
+        p {
+            color: $brownish-grey;
+            font-size: rem-calc(11);
+            line-height: rem-calc(18);
+            font-weight: 600;
+        }
+
+        .date {
+            margin-top: rem-calc(17);
+            display: flex;
+            justify-content: start;
+            align-items: center;
+
+            p {
+                margin-left: rem-calc(15);
+                color: #3a3a3a;
+                font-weight: 600;
+            }
+        }
+    }
+}

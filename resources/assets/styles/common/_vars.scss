@@ -1,0 +1,24 @@
+// colors
+$white: #fff;
+$lighter-black: #333333;
+$black: #141414;
+$grey: #bcbcbc;
+$warm-grey: #6f6f6f;
+$brownish-grey: #636363;
+$yellow: #f6b138;
+$gold: #dd9124;
+
+// Typography
+$primary-font-family: 'Montserrat', sans-serif;
+$secondary-font-family: 'Crimson Text', serif;
+$primary-font-color: $black;
+$reverse-font-color: $white;
+$headings-font-family: $primary-font-family;
+
+// Utility
+$max-width: 1160; //no units
+$base-padding: rem-calc(100);
+$base-margin: rem-calc(100);
+$module-margin: rem-calc(15);
+$module-padding: rem-calc(15);
+$outer-bg-color: $white;

@@ -1,0 +1,38 @@
+.module.icons {
+    .rounded-icons {
+        @include responsive-margin('bottom', rem-calc(50));
+        @include responsive-margin('top', rem-calc(50));
+    }
+
+    .round-icon {
+        min-width: rem-calc(69);
+        width: rem-calc(69);
+        height: rem-calc(69);
+        border: 2px solid $grey;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        img {
+            padding: 0;
+        }
+        
+    }
+
+    .icon-text {
+        text-transform: uppercase;
+        @include responsive-type(14);
+        color: $black;
+        margin-left: rem-calc(30);
+        font-weight: 500;
+    }
+
+    .icon-block {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        margin-bottom: rem-calc(15);
+    }
+
+}

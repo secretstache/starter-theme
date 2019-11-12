@@ -1,53 +1,54 @@
 @if( $template->option_status )
 
-    <section {!! $id !!} {!! $classes !!} {!! $style !!} >
+    <section {!! $id !!} {!! $classes !!}>
 
-        <div class="grid-container">
+        @if ( $template->cta_style == 'full' )
 
-            <div class="grid-x grid-margin-x align-center">
+            <div class="grid-container">
 
-                <div class="cell small-11 medium-12">
+                <div class="grid-x grid-margin-x align-center align-middle has-2-cols">
 
-                    <div class="inner">
+                    <div class="cell small-11 medium-12 large-9">
 
-                        <div class="content">
+                        <div class="inner">
 
-                            @if ( $headline = $template->headline )
+                            @if ( $headline = $template->cta_headline )
 
-                                <header class="component stack-order-1">
-                                    <h2 class="headline">
-                                        {!! $headline !!}
-                                    </h2>
-                                </header>
+                                <h3 class="headline">
+                                    {!! $headline !!}
+                                </h3>
 
                             @endif
 
-                            @if ( $subheadline = wpautop( $template->subheadline ) )
-
-                                <div class="component default">
-                                    {!! $subheadline !!}
-                                </div>
-
-                            @endif
-
-                            @if ( $template->buttons )
-
-								@php
-
-									$module = (object)array(
-										"acf_fc_layout" => "buttons"
-									);
-
-									$wrapper_id = $builder->getCustomID( $module );
-									$wrapper_classes = $builder->getCustomClasses( "module", $template->buttons[0]->option_button_alignment, $key, $module );
-
-								@endphp
-
-								@include( 'modules.button', [ 'buttons' => $template->buttons, 'wrapper_id' => $wrapper_id, 'wrapper_classes' => $wrapper_classes ] )
-
+                            @if ( $subheadline =  $template->cta_description )
+                                <p>{!! $subheadline !!}</p>    
                             @endif
 
                         </div>
+
+                    </div>
+
+                    <div class="cell small-11 medium-12 large-3">
+                                
+                        @if ( $template->cta_include_button )
+
+							<div class="inner">
+
+								@php
+									$module = (object)array(
+										"acf_fc_layout" => "buttons"
+									);
+									
+									$wrapper_id = $builder->getCustomID( $module );
+									$wrapper_classes = $builder->getCustomClasses( "module", '', $key, $module );
+								@endphp
+
+								@include( 'modules.button', [ 'buttons' => array( $template->button ), 'wrapper_id' => $wrapper_id, 'wrapper_classes' => $wrapper_classes ] )
+
+							</div>
+
+						@endif
+
 
                     </div>
 
@@ -55,7 +56,54 @@
 
             </div>
 
-        </div>
+            @elseif( $template->cta_style == 'compressed' )
+
+            <div class="grid-container">
+
+                <div class="grid-x grid-margin-x align-center align-middle has-2-cols">
+
+                    <div class="cell small-11 medium-12 large-9">
+
+                        <div class="inner">
+
+                            @if ( $headline = $template->cta_headline )
+
+                                <p class="yellow-option-text">{!! $headline !!}</p>   
+
+                            @endif 
+
+                        </div>
+
+                    </div>
+
+                    <div class="cell small-11 medium-12 large-3">
+                                
+                        @if ( $template->cta_include_button )
+
+							<div class="inner">
+
+								@php
+									$module = (object)array(
+										"acf_fc_layout" => "buttons"
+									);
+									
+									$wrapper_id = $builder->getCustomID( $module );
+									$wrapper_classes = $builder->getCustomClasses( "module", '', $key, $module );
+								@endphp
+
+								@include( 'modules.button', [ 'buttons' => array($template->button), 'wrapper_id' => $wrapper_id, 'wrapper_classes' => $wrapper_classes ] )
+
+							</div>
+
+                        @endif
+                        
+                    </div>
+
+                </div>
+
+            </div>
+            
+        @endif
 
     </section>
 

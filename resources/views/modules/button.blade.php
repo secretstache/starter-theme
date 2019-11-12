@@ -19,11 +19,19 @@
 
 					@endif
 
-				@else
+				@elseif( $button->button_source == 'custom' )
 
 					@if ( $button->button_label && $button->button_url )
 
 						<a {!! $inner_id !!} class="button {!! $button->option_button_size !!}{!! $inner_classes !!}" href="{!! $button->button_url !!}" target="{!! $button->option_button_target !!}"> {!! $button->button_label !!} </a>
+
+					@endif
+
+				@elseif( $button->button_source == 'upload' )
+
+					@if ( $button->button_label && $button->button_file )
+
+						<a {!! $inner_id !!} download class="button {!! $button->option_button_size !!}{!! $inner_classes !!}" href="{!! $button->button_file->url !!}" target="{!! $button->option_button_target !!}"> {!! $button->button_label !!} </a>
 
 					@endif
 

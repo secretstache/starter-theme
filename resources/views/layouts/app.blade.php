@@ -15,10 +15,34 @@
 				@php do_action('get_header') @endphp
 
 				@include('partials.header')
+				
+				@if( is_page() )
+
+					@php
+							$args = (object)array(
+								"option_background"	=> $option_background,
+								"option_background_color" => $option_background_color,
+								"option_background_image" => $option_background_image,
+								"option_background_video" => $option_background_video,
+								"option_html_classes" => $option_html_classes,
+								"option_html_id" => $option_html_id,
+							);
+
+							$classes = $builder->getCustomClasses( "hero-unit", '', '', $args );
+							$id = $builder->getCustomID( $args );
+							$style = ( $args->option_background == 'image' && !is_null( $args->option_background_image ) ) ? ' style="background-image: url(' . $args->option_background_image->url . ')" ' : '';
+						
+					@endphp
+
+					@include( 'templates.hero-unit', [ 'classes' => $classes, 'id' => $id, 'style' => $style ] )
+
+
+	@endif {{-- $hero_unit_columns --}}
+
 
 				<div class="wrap container" role="document">
 
-					<main class="content">
+					<main class="content" id="main">
 
 						@yield('content')
 

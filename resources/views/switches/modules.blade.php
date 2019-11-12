@@ -12,6 +12,12 @@
 
         @case( 'header' )
 
+        @php
+
+            $classes = $builder->getCustomClasses( "module", 'component-header', $key, $module );
+
+        @endphp
+
             @include( 'modules.header', [ 'classes' => $classes, 'id' => $id, 'headline' => $module->headline, 'subheadline' => $module->subheadline ] )
             @break
 
@@ -33,9 +39,9 @@
 
             @break
 
-        @case( 'image' )
+        @case( 'figure' )
 
-            @include( 'modules.image', [ 'classes' => $classes, 'id' => $id, 'src' => $module->image_inner->url, 'alt' => $module->image_inner->alt, 'add_image_link' => $module->option_add_image_link, 'source' => $module->option_image_link_source ] )
+            @include( 'modules.figure', [ 'classes' => $classes, 'id' => $id, 'src' => $module->image_inner->url, 'alt' => $module->image_inner->alt, 'add_image_link' => $module->option_add_image_link, 'source' => $module->option_image_link_source ] )
             @break
 
         @case( 'video' )
@@ -52,6 +58,17 @@
 
             @include( 'modules.map', [ 'classes' => $classes, 'id' => $id ] )
             @break
+
+         @case( 'icons' )
+
+            @include( 'modules.icons', [ 'classes' => $classes, 'id' => $id ] )
+            @break
+
+        @case( 'testimonial' )
+
+            @include( 'modules.testimonial', [ 'classes' => $classes, 'id' => $id, 'testimonial_id' => $module->testimonial ] )
+            @break
+
 
         @endswitch {{-- $module->acf_fc_layout --}}
 

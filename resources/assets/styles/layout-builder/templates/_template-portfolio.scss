@@ -1,0 +1,226 @@
+.content-block.template-portfolio {
+
+    .tabs-content {
+        border: 0;
+        background: transparent;
+    }
+
+    .tabs-title > a:focus, .tabs-title > a[aria-selected='true'] {
+        background: transparent;
+    }
+    
+    .tabs {
+        border: none;
+        text-align: center;
+        background: transparent;
+
+        li {
+            margin: 0 rem-calc(10) 0 rem-calc(10);
+            float: none;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        @include breakpoint (small only) {
+            .tabs-title {
+                display: block;
+                margin-top: rem-calc(8);
+
+            }
+
+            .tabs-add {
+                margin-top: rem-calc(16);
+            }
+        }
+
+        a {
+            border: 1px solid $grey;
+            font-size: rem-calc(10);
+            padding: rem-calc(14) rem-calc(20);
+            color: $black;
+
+            &:hover {
+                border: 1px solid $gold;
+                transition: .3s all;
+                cursor: pointer;
+            }
+        }
+
+        .tabs-title.is-active {
+            a {
+                border: 1px solid $gold;
+            }
+            
+        }
+
+        .tab-hidden {
+            display: none;
+            transition: .3s ease-in;
+        }
+
+        .tab-hidden-show {
+            display: inline-block;
+            animation-name: slideIn;
+            animation-duration: .6s;
+
+            @include breakpoint (small only) {
+                display: block;
+            }
+        }
+    }
+
+    .tabs-panel {
+        padding: 0;
+        @include responsive-margin("top", 40);
+        transition: .6s all;
+    }
+    
+    .portfolio-item {
+        height: rem-calc(350);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+
+        .hover {
+            transition: .3s all;
+            width: 100%;
+            height: 100%;
+
+            .hover-text {
+                position: relative;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                opacity: 0;
+                transition: .2s all;
+            }
+        }
+
+        @include breakpoint (medium) {
+            &:hover {
+                cursor: pointer;
+                // background: $dark;
+                .hover {
+                    background: rgba(0,0,0,0.65);
+                    visibility: visible;
+
+                    .hover-text {
+                    opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .portfolio-category {
+            color: $white;
+            @include responsive-type(18);
+            font-family: $secondary-font-family;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        .porftolio-name {
+            color: $white;
+            font-weight: bold;
+            letter-spacing: rem-calc(1.5);
+            @include responsive-type(15);
+            margin-top: rem-calc(25);
+        }
+
+    }
+
+    .mobile-text {
+
+        background: inherit;
+        color: $black;
+
+        p {
+            margin: 0;
+        }
+
+        .portfolio-category-mob {
+            @include responsive-type(18);
+            font-family: $secondary-font-family;
+            font-style: italic;
+        }
+
+        .porftolio-name-mob {
+            font-weight: bold;
+            letter-spacing: rem-calc(1.5);
+            @include responsive-type(15);
+            line-height: 4;
+        }
+
+        @include responsive-padding("top", 20);
+        @include responsive-padding("bottom", 40);
+
+        display: none;
+
+        @include breakpoint (small only) {
+            display: block;
+        }
+    }
+    
+
+    #panel1 {
+        .portfolio-item {
+            background: url('../images/cms/Image18.jpg');
+            background-size: cover;
+            background-position: center center;
+        }
+    }
+
+    #panel2 {
+        .portfolio-item {
+            background: url('../images/cms/Image51.jpg');
+            background-size: cover;
+            background-position: center center;
+        }
+    }
+
+    #panel3 {
+        .portfolio-item {
+            background: url('../images/cms/meeting-your-needs-image.jpg');
+            background-size: cover;
+            background-position: center center;
+        }
+    }
+
+    #panel4 {
+        .portfolio-item {
+            background: url('../images/cms/our-process-bg.jpg');
+            background-size: cover;
+            background-position: center center;
+        }
+    }
+}
+
+// animations 
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+
+    }
+
+    to {
+        opacity: 1;
+
+    }
+}
+
+.fadein {
+    animation-name: fadeIn;
+    animation-duration: 1.1s;
+}

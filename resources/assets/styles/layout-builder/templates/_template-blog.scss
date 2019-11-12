@@ -1,0 +1,141 @@
+.content-block.template-blog {
+
+    .blog-card {
+        
+        p {
+            margin-bottom: 0;
+        }
+        
+        .blog-image {
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            min-height: rem-calc(330);
+            width: auto; 
+        }
+
+        .blog-preview {
+            padding: rem-calc(54) rem-calc(44) rem-calc(52) rem-calc(54);
+            background: #eaeaea;
+            height: 100%;
+            position: relative;
+
+            @include breakpoint(medium) {
+                padding: rem-calc(25) rem-calc(20) rem-calc(25) rem-calc(25);
+            }
+
+            .post-subheadline {
+                @include responsive-type(14);
+                font-family: $secondary-font-family;
+                font-style: italic;
+            }
+
+            .post-headline {
+                @include responsive-margin("top", 17);
+                @include responsive-type(24);
+                font-weight: 500;
+            }
+
+            .post-preview {
+                @include responsive-margin("top", 21);
+                @include responsive-type(14,12);
+                color: $warm-grey;
+                font-weight: 600;
+            }
+
+            .button-wrap {
+                @include responsive-margin("top", 64);
+                .read-more {
+                    font-size: rem-calc(12);
+                    text-transform: uppercase;
+                    letter-spacing: rem-calc(1.2);
+                    font-weight: 600;
+
+                    &:after {
+                        content: '\2192';
+                        display: inline-block;
+                        width: auto;
+                        height: auto;
+                        outline: 0;
+                        margin-left: rem-calc(14);
+                        transition: .3s all;
+                    }
+
+                    &:hover {
+                        &:after {
+                        margin-left: rem-calc(18);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .apex-left {
+        position: relative;
+
+        &:before {
+            content:'';
+            border-style: solid;
+            border-width: rem-calc(25) rem-calc(25) rem-calc(25) 0;
+            border-color: transparent #eaeaea transparent transparent;
+            position: absolute;
+            @include breakpoint(large) {
+            left: rem-calc(-25);
+            }
+            @include vertical-center;
+
+            @include breakpoint (medium only) {
+                top: rem-calc(-25);
+                @include horizontal-center;
+                border-width: 0 rem-calc(25) rem-calc(25) rem-calc(25);
+                border-color: transparent transparent #eaeaea;
+            }
+
+            @include breakpoint (small only) {
+                top: rem-calc(-25);
+                @include horizontal-center;
+                border-width: 0 rem-calc(25) rem-calc(25) rem-calc(25);
+                border-color: transparent transparent #eaeaea;
+            }
+        }
+    }
+
+    .apex-right {
+        position: relative;
+
+        @include breakpoint (medium only) {
+            order: 1;
+        }
+
+        @include breakpoint (small only) {
+            order: 2;
+        }
+
+        &:after {
+            content:'';
+            border-style: solid;
+            border-width: rem-calc(25) 0 rem-calc(25) rem-calc(25);
+            border-color: transparent #eaeaea  transparent;
+            position: absolute;
+            @include breakpoint(large) {
+            right: rem-calc(-25);
+            }
+            @include vertical-center;
+
+            @include breakpoint (medium only) {
+                top: rem-calc(-25);
+                @include horizontal-center;
+                border-width: 0 rem-calc(25) rem-calc(25) rem-calc(25);
+                border-color: transparent transparent #eaeaea;
+            }
+
+            @include breakpoint (small only) {
+                top: rem-calc(-25);
+                @include horizontal-center;
+                border-width: 0 rem-calc(25) rem-calc(25) rem-calc(25);
+                border-color: transparent transparent #eaeaea;
+            }
+        }
+    }
+}

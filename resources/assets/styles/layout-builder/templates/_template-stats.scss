@@ -1,0 +1,40 @@
+.content-block.template-stats {
+    text-align: center;
+    @include responsive-padding("vert");
+
+    .grid-container .grid-x .cell .inner {
+        h4 {
+            letter-spacing: rem-calc(2.4);
+            font-weight: 600;
+            @include responsive-type(48);
+        }
+    
+        p {
+            @include responsive-type(18);
+            color: $white;
+            @include responsive-margin("top", 41);
+            @include responsive-margin("bottom", 33);
+            font-family: $secondary-font-family;
+            font-style: italic;
+        }
+    }
+
+    @include breakpoint(small only) {
+        .cell {
+            margin-bottom: rem-calc(3);
+        }
+    }
+
+    .underline {
+        max-width: rem-calc(53);
+        border-bottom: rem-calc(2) solid #909090;
+        float: none;
+        margin: 0 auto;
+    }
+
+    &.bg-grey {
+        h4, p {
+            color: $black;
+        }
+    }
+}

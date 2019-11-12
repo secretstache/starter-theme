@@ -1,81 +1,73 @@
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
+    }
+}
+
 body {
-  background: $outer-bg-color;
-  color: $primary-font-color;
-  font-family: $primary-font-family;
-  font-size: $default-font-size;
-  font-weight: normal;
+    background: $outer-bg-color;
+    font-family: $primary-font-family;
+    margin: 0;
+    color: $primary-font-color;
+    font-weight: normal;
+    font-size: rem-calc(16);
+    line-height: 1.6;
+
+    &#tinymce {
+    	background: $body-background;
+    	margin: $wp-editor-margin;
+    	color: $wp-editor-color;
+    }
+    
 }
 
-img[class*="wp-image-"],
-img[class^="wp-image-"] {
-  @include responsive-margin("bottom", $base-margin/2);
+a {
+    color: $primary-font-color;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $primary-font-color;
+    }
 }
 
-.alignnone {
-  margin-left: 0;
-  margin-right: 0;
-  max-width: 100%;
-  height: auto;
+a.skip-main {
+    left: -999px;
+    position: absolute;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: -999;
 }
 
-.aligncenter {
-  @include responsive-margin("bottom", $base-margin/2);
-  display: block;
-  height: auto;
+a.skip-main:focus,
+a.skip-main:active {
+    color: #fff;
+    background-color: #000;
+    left: auto;
+    top: auto;
+    width: 30%;
+    height: auto;
+    overflow: auto;
+    margin: 10px 35%;
+    padding: 5px;
+    border-radius: 15px;
+    border: 4px solid yellow;
+    text-align: center;
+    font-size: 1.2em;
+    z-index: 9999;
 }
 
-.alignleft,
-.alignright {
-  height: auto;
-}
-
-@include breakpoint(medium) {
-  // Only float if not on an extra small device
-  .alignleft {
-    float: left;
-    margin-right: ($base-margin / 2);
-  }
-  .alignright {
-    float: right;
-    margin-left: ($base-margin / 2);
-  }
-}
-
-.bg-grey-light {
-  background-color: $grey-light;
-}
-
-.bg-dark {
-  color: $reverse-font-color;
-}
-
-@include breakpoint(medium) {
-  section[class^="thin-"] .main.grid-x,
-  [class*="thin-"] .main.grid-x {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  section.thin-90 .main.grid-x {
-    width: 90%;
-  }
-  section.thin-80 .main.grid-x {
-    width: 80%;
-  }
-  section.thin-70 .main.grid-x {
-    width: 70%;
-  }
-  section.thin-60 .main.grid-x {
-    width: 60%;
-  }
-  section.thin-50 .main.grid-x {
-    width: 50%;
-  }
-}
-
-@include breakpoint(small only) {
-  .grid-margin-x.align-left,
-  .grid-margin-x.align-justify,
-  .grid-margin-x.align-right {
-    justify-content: center;
-  }
+.dropdown.menu>li>a,
+.menu .active>a {
+    background: inherit;
+    color: inherit;
 }

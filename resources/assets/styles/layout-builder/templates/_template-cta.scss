@@ -1,0 +1,86 @@
+.content-block.template-cta {
+    h3 {
+        font-weight: bold;
+        @include responsive-type(24,15);
+        letter-spacing: rem-calc(2.4);
+        @include responsive-padding("vert", 40);
+    }
+
+    p {
+        color: $warm-grey;
+        @include responsive-type(14,12);
+        line-height: rem-calc(30);
+        max-width: rem-calc(785);
+        font-weight: 500;
+    }
+
+    &.bg-lighter-black {
+        .buttons {
+            margin: 0;
+            @include breakpoint (medium only) {
+                @include responsive-margin("top", 40);
+            }
+            @include breakpoint (small only) {
+                @include responsive-margin("top", 40);
+            }
+        }
+
+        .button {
+            font-family: $primary-font-family;
+            font-weight: bold;
+            background: $yellow;
+            border: none;
+            color: $white;
+            letter-spacing: rem-calc(1.2);
+            text-transform: uppercase;
+            @include responsive-type(12);
+            @include responsive-padding('horz', rem-calc(38));
+            @include responsive-padding('vert', rem-calc(20));
+            transition: .6s all;
+          
+            &:hover,
+            &:active,
+            &:focus {
+              background: $white;
+              color: $black;
+              cursor: pointer;
+              position: relative;
+            }
+          }
+    }
+
+    .buttons {
+        @include breakpoint (medium) {
+            @include responsive-margin("top",50);
+        }
+
+        .button-squared {
+            width: rem-calc(270);
+            @include responsive-padding("vert", 24);
+            @include responsive-margin("top", 30);
+            @include breakpoint (small medium) {
+                position: relative;
+                margin-top: rem-calc(16) !important;
+            }
+        }
+    }
+
+    .yellow-option-text {
+        font-family: $secondary-font-family;
+        font-style: italic;
+        @include responsive-type(30);
+        color: $white;
+
+        .yellow-text {
+            color: $yellow;
+        }
+    }
+
+    @include breakpoint (small only) {
+        text-align: center;
+    }
+}
+
+.template-cta.bg-lighter-black {
+    @include responsive-padding("vert", 35);
+}

@@ -1,22 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i|Montserrat:500,500i,600,700,800&display=swap');
+
 h1,
 h2,
 h3,
 h4,
 h5 {
-  margin-bottom: 0;
+    margin-bottom: 0;
+    font-family: $headings-font-family;
 }
 
-p.intro {
-  @include responsive-type($default-font-size * 1.25);
+h1 {
+    @include responsive-type(46, 34);
+}
+
+h2 {
+    @include responsive-type(36, 27);
+}
+
+h3 {
+    @include responsive-type(30, 24);
+}
+
+h4 {
+    @include responsive-type(28, 22);
+}
+
+h5 {
+    @include responsive-type(27, 20);
+}
+
+h6 {
+    @include responsive-type(22, 18);
+}
+
+p {
+    line-height: inherit;
 }
 
 p:last-of-type {
-  margin-bottom: 0;
-  & + ol,
-  & + ul,
-  & + h2,
-  & + h3,
-  & + h4 {
-    margin-top: 1rem;
-  }
+    margin-bottom: 0;
+
+    &+ol,
+    &+ul,
+    &+h2,
+    &+h3,
+    &+h4 {
+        margin-top: rem-calc(20);
+    }
 }

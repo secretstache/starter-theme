@@ -11,7 +11,7 @@
 			"./scripts/columns_width.js"
 		]
   },
-  "publicPath": "/wp-content/themes/ssm",
+  "publicPath": "/wp-content/themes/trl2019",
   "devUrl": "http://rebuild.loc",
   "proxyUrl": "http://localhost:3000",
   "cacheBusting": "[name]_[hash:8]",

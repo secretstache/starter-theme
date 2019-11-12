@@ -1,0 +1,10 @@
+.module.text-editor {
+    margin-top: 0;
+
+    p {
+        @include responsive-type(14,12);
+        color: $warm-grey;
+        line-height: rem-calc(30);
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,37 @@
+.content-block.template-icon-list {
+    
+    .icon-list-item {
+
+        .grid-x {
+            @include responsive-margin("top", 49);
+        }
+
+        h4 {
+            font-weight: bold;
+            @include responsive-type(16,14);
+        }
+
+        p {
+            font-size: rem-calc(13);
+            color: $warm-grey;
+            font-weight: 500;
+            padding: rem-calc(20) rem-calc(20) rem-calc(20) 0;
+
+        }
+    }
+
+    .underline {
+        border-bottom: 1px solid $grey;
+        @include responsive-padding("bottom", 29);
+    }
+
+    .underline-m {
+        border-bottom: 1px solid transparent;
+        @include responsive-padding("bottom", 29);
+
+        @include breakpoint(small only) {
+            border-bottom: 1px solid $grey;
+        }
+    }
+    
+}

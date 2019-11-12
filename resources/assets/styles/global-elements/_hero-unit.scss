@@ -1,0 +1,159 @@
+section.hero-unit {
+    position: relative;
+    height: 100vh;
+
+    .button {
+        background: transparent;
+        font-family: $secondary-font-family;
+        font-style: italic;
+        border: 1px solid $black;
+        border-radius: 50%;
+        @include responsive-type(18, 15);
+        height: rem-calc(83);
+        padding-left: rem-calc(23);
+        padding-right: rem-calc(23);
+        transition: .6s all;
+        color: $black;
+        display:inline-flex; 
+        align-items: center;
+        width: auto;
+        letter-spacing: normal;
+        text-transform: capitalize;
+      
+        &:hover,
+        &:active,
+        &:focus {
+          background: $black;
+          color: $white;
+          cursor: pointer;
+        }
+      }      
+
+    .grid-container {
+        position: relative;
+        width: 100%;
+        z-index: 2;
+        @include absolute-center;
+    }
+
+    //overlay
+    .overlay {
+        @include overlay;
+    }
+
+    //video bg
+    &.bg-video {
+        overflow: hidden;
+        color: $white;
+
+        .buttons a {
+            color: $white;
+
+            &:hover {
+                color: $black;
+            }
+        }
+
+        .overlay {
+            z-index: 2;
+        }
+    }
+
+    .video-overlay {
+
+        video {
+            transform: translate(-50%, -50%);
+            left: 50%;
+            position: absolute;
+            min-width: 100%;
+            min-height: 100%;
+            top: 50%;
+            object-fit: fill;
+        }
+    }
+
+    //image background
+    &.bg-image {
+        color: $white;
+
+        .buttons a {
+            color: $white;
+
+            &:hover {
+                color: $black;
+            }
+        }
+    }
+
+    .headline {
+        @include responsive-type(90);
+        font-weight: bold;
+        letter-spacing: -6.75px;
+        line-height: rem-calc(100);
+
+        @include breakpoint(small only) {
+            @include responsive-type(30);
+            letter-spacing: -2.75px;
+        }
+
+        span {
+            @include responsive-type(140);
+            font-weight: bold;
+            letter-spacing: -10.5px;
+
+            @include breakpoint(small only) {
+                @include responsive-type(60);
+                letter-spacing: -2.5px;
+            }
+        }
+    }
+
+    .subheadline {
+        font-family: $secondary-font-family;
+        font-style: italic;
+    }
+
+    .buttons {
+        @include responsive-margin("top", 60);
+    }
+
+    // prevent cutting at the edges
+    .slider-wrapper {
+        width: calc(100% + 30px);
+        padding: 0 15px;
+        margin-left: -15px;
+        overflow: hidden;
+    }
+
+    .slick-list {
+        overflow: visible;
+    }
+
+    @include breakpoint (small only ) {
+        .slick-arrow {
+            max-width: rem-clac(20);
+            max-height: rem-calc(20);
+            display: inline-block;
+        }
+
+        .slick-next {
+            right: -25px;
+        }
+    }
+
+    .hero-unit-slider {
+        opacity: 0;
+    }
+
+    // vertical align inside hero-unit slider
+    .slick-track {
+        display: flex;
+    }
+    .slick-track .slick-slide {
+        display: flex;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+}

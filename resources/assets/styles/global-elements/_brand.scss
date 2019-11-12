@@ -1,0 +1,21 @@
+.brand {
+    img {
+      display: none;
+    }
+  
+    svg {
+      display: block;
+      width: rem-calc(170);
+      height: rem-calc(53);
+    }
+  
+    .logo {
+      fill: $white;
+    }
+  
+    .is-stuck & {
+      .logo {
+        fill: $black;
+      }
+    }
+  }
