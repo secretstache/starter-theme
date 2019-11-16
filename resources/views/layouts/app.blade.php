@@ -6,6 +6,10 @@
 
 	<body {{ body_class() }} >
 
+		@if ( $gtm = get_field("google_tag_manager_id", "options") )
+			@php do_action("ssm_gtm_body_insert", $gtm); @endphp
+		@endif
+
 		<div class="off-canvas-wrapper">
 
 			@include('partials.offcanvas')
