@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html {{ get_language_attributes() }}>
+<html {!! get_language_attributes() !!}>
 
 	@include('partials.head')
 
