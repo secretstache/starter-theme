@@ -5,6 +5,7 @@ jQuery(document).ready(function($) {
 	}
 
 	var thumbs_dir = custom.stylesheet_directory + "/assets/thumbs/";
+	var swatches_dir = custom.stylesheet_directory + "/assets/swatches/";
 
 	acf.add_action("append_field/type=flexible_content", function($el) {
 		changeOptions($el, "append");
@@ -19,6 +20,8 @@ jQuery(document).ready(function($) {
 	});
   
 	function populate( el ) {
+
+		var background_color_rows = el.find('div[data-name="option_background_color"]');
 
 		var column_rows = el.find('div[data-name="template_columns"]').slice(1);
 		var page_id = $("#post_ID").val();
@@ -55,6 +58,34 @@ jQuery(document).ready(function($) {
 			.appendTo($("#post"));
 		
 		}
+
+		var colors = {
+			"bg-white" : "ffffff",
+			"bg-blue-light" : "f5f8fe",
+			"bg-blue" : "1a3668"
+		}
+
+		$.each(background_color_rows, function(counter) {
+
+			var color_options = $(this)
+				.children(".acf-input")
+				.children(".acf-radio-list")
+				.children("li");
+
+			$.each(color_options, function(counter) {
+
+				var color_input = $(this).children("label").children("input");
+				var input_html = color_input[0].outerHTML;
+				var input_value = color_input.val();
+
+				var color_key = colors[input_value];
+				var swatch_html = '<img class="swatches" src="' + swatches_dir + color_key + '.png" swatch"/>'
+
+				color_input.parent("label").html( input_html + swatch_html );
+
+			})
+
+		});
   
 		$.each(column_rows, function(counter) {
 
