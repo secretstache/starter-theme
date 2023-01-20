@@ -18,9 +18,9 @@
 
 1. **Clone** both repositories (SST and empty project repository) to */wp-content/themes/*
 	- git clone https://github.com/secretstache/starter-theme
-	- git clone https://github.com/secretstache/kpt-steriflow-wp
+	- git clone [repository_url]
 4. **Copy** all the content from one repository to another (including *.gitignore* excluding *.git/*)
-	- Naming convention: _**project_code**_year__ (_**stf**2019_)
+	- Naming convention: _**project_code**_year__
 6. **cd** to project’s folder
 7. **Run** *composer install*
 8. **Run** *yarn*
